@@ -1,0 +1,7 @@
+services:
+  progresso:
+    build: .
+    container_name: progresso-mvp
+    ports:
+      - "8080:80"
+    restart: unless-stopped

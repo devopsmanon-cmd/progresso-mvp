@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progresso — Tracker de candidatures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">P</div>
+      <div>
+        <h1>Progresso</h1>
+        <p class="subtitle" data-i18n="landing_subtitle">Tracker intelligent de candidatures</p>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="lang">
+        <label for="langSelectLanding" class="sr-only">Langue</label>
+        <select id="langSelectLanding" class="select">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <a class="btn primary" href="app.html" data-i18n="open_app">Ouvrir l’app</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2 class="hero__title" data-i18n="hero_title">Suivi clair. Relances maîtrisées. Décisions rapides.</h2>
+      <p class="hero__text" data-i18n="hero_text">
+        Progresso te permet de suivre tes candidatures dans un pipeline simple : À envoyer → Accepté,
+        avec notes, relances et export CSV.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn primary" href="app.html" data-i18n="start_now">Commencer maintenant</a>
+        <a class="btn secondary" href="app.html" data-i18n="see_pipeline">Voir le pipeline</a>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature__title" data-i18n="feat_kanban_title">Pipeline Kanban</div>
+          <div class="feature__text" data-i18n="feat_kanban_text">Glisser-déposer tes candidatures par statut.</div>
+        </div>
+        <div class="feature">
+          <div class="feature__title" data-i18n="feat_follow_title">Relance</div>
+          <div class="feature__text" data-i18n="feat_follow_text">Ajoute une date de relance + notes entreprise.</div>
+        </div>
+        <div class="feature">
+          <div class="feature__title" data-i18n="feat_csv_title">Export CSV</div>
+          <div class="feature__text" data-i18n="feat_csv_text">Télécharge ton historique en 1 clic.</div>
+        </div>
+      </div>
+
+      <div class="footer-note" data-i18n="landing_note">
+        Version MVP Free — données stockées localement sur ton appareil.
+      </div>
+    </section>
+  </main>
+
+ <<script src="/script.js" defer></script>
+  <script>
+    // Landing only: init i18n UI
+    window.Progresso && window.Progresso.initLanding && window.Progresso.initLanding();
+  </script>
+</body>
+</html>

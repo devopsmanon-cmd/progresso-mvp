@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progresso — Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">P</div>
+      <div>
+        <h1>Progresso</h1>
+        <p class="subtitle" data-i18n="app_subtitle">Tracker intelligent de candidatures</p>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="lang">
+        <label for="langSelectApp" class="sr-only">Langue</label>
+        <select id="langSelectApp" class="select">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <a class="btn secondary" href="index.html" data-i18n="landing">Landing</a>
+      <button id="btnExport" class="btn secondary" type="button" data-i18n="export_csv">Exporter CSV</button>
+      <button id="btnAdd" class="btn primary" type="button" data-i18n="add_btn">+ Ajouter</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="overdueBanner" class="overdue-banner" hidden aria-live="polite"></section>
+    <section class="stats" aria-label="Dashboard">
+      <div class="stat">
+        <div class="stat__label" data-i18n="stat_total">Total</div>
+        <div id="statTotal" class="stat__value">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label" data-i18n="stat_interviews">Entretiens</div>
+        <div id="statInterview" class="stat__value">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label" data-i18n="stat_accepted">Acceptés</div>
+        <div id="statAccepted" class="stat__value">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label" data-i18n="stat_rejected">Refus</div>
+        <div id="statRejected" class="stat__value">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label" data-i18n="stat_remaining">Restantes aujourd’hui</div>
+        <div id="statRemaining" class="stat__value">10</div>
+      </div>
+      <div class="stat stat--overdue">
+        <div class="stat__label" data-i18n="stat_overdue">Relances en retard</div>
+        <div id="statOverdue" class="stat__value">0</div>
+      </div>
+    </section>
+
+    <section class="projectbar" aria-label="Projet">
+      <label for="projectName" data-i18n="project_label">Projet :</label>
+      <input id="projectName" type="text" maxlength="40" placeholder="Recherche DevOps 2026" />
+      <span class="hint" data-i18n="project_hint">1 projet (MVP)</span>
+    </section>
+
+    <section class="pipeline-wrap" aria-label="Pipeline">
+      <div class="pipeline" id="pipeline"></div>
+    </section>
+  </main>
+
+  <button id="fabAdd" class="fab" type="button" aria-label="Ajouter une candidature">+</button>
+
+  <dialog id="modal" class="modal">
+    <form id="form" class="modal__content" method="dialog">
+      <div class="modal__header">
+        <h2 id="modalTitle" data-i18n="modal_new">Nouvelle candidature</h2>
+        <button id="btnClose" class="iconbtn" type="button" aria-label="Fermer">✕</button>
+      </div>
+
+      <div class="field">
+        <label for="company" data-i18n="field_company">Entreprise *</label>
+        <input id="company" name="company" type="text" required maxlength="60" placeholder="Ex : Capgemini" />
+      </div>
+
+      <div class="field">
+        <label for="role" data-i18n="field_role">Poste</label>
+        <input id="role" name="role" type="text" maxlength="60" placeholder="Ex : DevOps / Cloud" />
+      </div>
+
+      <div class="field">
+        <label for="status" data-i18n="field_status">Statut</label>
+        <select id="status" name="status"></select>
+      </div>
+
+      <div class="field">
+        <label for="followUp" data-i18n="field_followup">Date de relance</label>
+        <input id="followUp" name="followUp" type="date" />
+      </div>
+
+      <div class="field">
+        <label for="notes" data-i18n="field_notes">Notes entreprise</label>
+        <textarea id="notes" name="notes" rows="4" maxlength="500"
+          placeholder="Contact, infos, salaire, impressions..."></textarea>
+      </div>
+
+      <div class="modal__footer">
+        <button id="btnDelete" class="btn danger" type="button" hidden data-i18n="delete">Supprimer</button>
+        <div class="spacer"></div>
+        <button class="btn secondary" id="btnCancel" type="button" data-i18n="cancel">Annuler</button>
+        <button class="btn primary" id="btnSave" type="submit" data-i18n="save">Enregistrer</button>
+      </div>
+
+      <input type="hidden" id="editingId" value="" />
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script>
+    window.Progresso && window.Progresso.initApp && window.Progresso.initApp();
+  </script>
+</body>
+</html>
